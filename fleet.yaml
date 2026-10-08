@@ -3,4 +3,4 @@ helm:
   repo: "oci://ghcr.io/fleetrepoci/guestbook"
   version: "0.1.0"
   releaseName: guestbook
-  namespace: testbranch
+
