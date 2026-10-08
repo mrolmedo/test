@@ -1,6 +1,6 @@
 defaultNamespace: testbranch
 helm:
   repo: "oci://ghcr.io/fleetrepoci/guestbook"
-  chart: guestbook
+  version: "0.1.0"
   releaseName: guestbook
-  namespace: guestbook
+  namespace: testbranch
