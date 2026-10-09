@@ -1,4 +1,4 @@
-defaultNamespace: testrepofield
+defaultNamespace: testrepofieldfolder
 helm:
   repo: "oci://ghcr.io/fleetrepoci/guestbook"
   version: "0.0.0"
