@@ -1,6 +1,6 @@
-defaultNamespace: testbranch
+defaultNamespace: testrepofield
 helm:
-  chart: "oci://ghcr.io/fleetrepoci/guestbook"
+  repo: "oci://ghcr.io/fleetrepoci/guestbook"
   version: "0.0.0"
   releaseName: guestbook
 
