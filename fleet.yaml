@@ -1,5 +1,13 @@
-defaultNamespace: fleet-mc-helm-external
+defaultNamespace: cosign-system
+
 helm:
- chart: https://github.com/rancher/fleet-examples/releases/download/example/guestbook-0.0.1.tgz
- releaseName: guestbook
- namespace: guestbook
+  releaseName: policy-controller
+  repo: https://sigstore.github.io/helm-charts
+  chart: policy-controller
+  version: "0.10.8"
+  createNamespace: true
+  values:
+    webhook:
+      image:
+        repository: ghcr.io/sigstore/policy-controller/policy-controller
+        version: v0.15.1
