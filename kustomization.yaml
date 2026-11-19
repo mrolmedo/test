@@ -1,0 +1,19 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+patches:
+  - target:
+      group: admissionregistration.k8s.io
+      version: v1
+      kind: MutatingWebhookConfiguration
+      name: policy.sigstore.dev
+    patch: |-
+      - op: remove
+        path: /webhooks
+  - target:
+      group: admissionregistration.k8s.io
+      version: v1
+      kind: ValidatingWebhookConfiguration
+      name: policy.sigstore.dev
+    patch: |-
+      - op: remove
+        path: /webhooks
