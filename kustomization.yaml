@@ -8,7 +8,7 @@ patches:
       name: policy.sigstore.dev
     patch: |-
       - op: remove
-        path: /webhooks
+        path: /webhooks/0/namespaceSelector
   - target:
       group: admissionregistration.k8s.io
       version: v1
@@ -16,4 +16,4 @@ patches:
       name: policy.sigstore.dev
     patch: |-
       - op: remove
-        path: /webhooks
+        path: /webhooks/0/namespaceSelector
