@@ -7,13 +7,25 @@ patches:
       kind: MutatingWebhookConfiguration
       name: policy.sigstore.dev
     patch: |-
-      - op: remove
+      - op: replace
         path: /webhooks/0/namespaceSelector
+        value:
+          matchExpressions:
+            - key: policy.sigstore.dev/include
+              operator: In
+              values:
+                - "true"
   - target:
       group: admissionregistration.k8s.io
       version: v1
       kind: ValidatingWebhookConfiguration
       name: policy.sigstore.dev
     patch: |-
-      - op: remove
+      - op: replace
         path: /webhooks/0/namespaceSelector
+        value:
+          matchExpressions:
+            - key: policy.sigstore.dev/include
+              operator: In
+              values:
+                - "true"
