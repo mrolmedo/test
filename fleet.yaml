@@ -6,8 +6,24 @@ helm:
   chart: policy-controller
   version: "0.10.8"
   createNamespace: true
+  force: false
   values:
     webhook:
       image:
         repository: ghcr.io/sigstore/policy-controller/policy-controller
         version: v0.15.1
+
+diff:
+  comparePatches:
+    - apiVersion: admissionregistration.k8s.io/v1
+      kind: MutatingWebhookConfiguration
+      name: policy.sigstore.dev
+      operations:
+        - op: remove
+          path: /webhooks
+    - apiVersion: admissionregistration.k8s.io/v1
+      kind: ValidatingWebhookConfiguration
+      name: policy.sigstore.dev
+      operations:
+        - op: remove
+          path: /webhooks
