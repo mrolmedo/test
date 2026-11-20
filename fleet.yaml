@@ -15,15 +15,22 @@ helm:
 
 diff:
   comparePatches:
-    - apiVersion: admissionregistration.k8s.io/v1
-      kind: MutatingWebhookConfiguration
-      name: policy.sigstore.dev
-      operations:
-        - op: remove
-          path: /webhooks
-    - apiVersion: admissionregistration.k8s.io/v1
-      kind: ValidatingWebhookConfiguration
-      name: policy.sigstore.dev
-      operations:
-        - op: remove
-          path: /webhooks
+  - apiVersion: admissionregistration.k8s.io/v1
+    kind: MutatingWebhookConfiguration
+    name: policy.sigstore.dev
+    operations:
+    - op: remove
+      path: /webhooks
+  - apiVersion: admissionregistration.k8s.io/v1
+    kind: ValidatingWebhookConfiguration
+    name: policy.sigstore.dev
+    operations:
+    - op: remove
+      path: /webhooks
+  - apiVersion: apps/v1
+    kind: Deployment
+    name: policy-controller-webhook
+    namespace: cosign-system
+    operations:
+    - op: remove
+      path: /spec/template/spec/containers
